@@ -19,10 +19,10 @@ for ki, vi in pairs(data.raw.fluid) do
       {
         {type="fluid", name=vi.name, amount=settings.startup["flare-stack-fluid-rate"].value}
       },
-      results =
-      {
-        {type="fluid", name=vi.name, amount=0}
-      },
+      results = { },
+      -- {
+        -- {type="fluid", name=vi.name, amount=0}
+      -- },
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -73,10 +73,10 @@ function incinerateRecipe(item, category)
       {
         {item.name, 1}
       },
-      results =
-      {
-        {type="fluid", name="water", amount=0}
-      },
+      results = { },
+      -- {
+        -- {type="fluid", name="water", amount=0}
+      -- },
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -89,7 +89,7 @@ end
 if data.raw.item["coal"] and data.raw.item["coal"].fuel_value then
   coal_value = data.raw.item["coal"].fuel_value
 else
-  coal_value = "8MJ"
+  coal_value = "4MJ"
 end
 
 for ki, vi in pairs(data.raw.item) do

@@ -8,6 +8,7 @@ data:extend(
     icon_size = 32,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "flare-stack"},
+    fast_replaceable_group = "fluid-incinerator",
     max_health = 250,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -114,12 +115,12 @@ data:extend(
         {
           { position = {0, -1} }
         }
-      },
-      {
-        production_type = "output",
-        base_area = 1,
-        base_level = 1,
-        pipe_connections = { }
+      -- },
+      -- {
+        -- production_type = "output",
+        -- base_area = 1,
+        -- base_level = 1,
+        -- pipe_connections = { }
       }
     },
     pipe_covers = pipecoverspictures()
@@ -143,6 +144,7 @@ incinerator = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 incinerator.name = "incinerator"
 incinerator.icon = "__Flare Stack__/graphics/icon/incinerator.png"
 incinerator.minable = {mining_time = 1, result = "incinerator"}
+incinerator.fast_replaceable_group = "item-incinerator"
 incinerator.crafting_categories = {"incineration"}
 incinerator.energy_usage = "800kW"
 incinerator.working_visualisations = nil
@@ -181,6 +183,7 @@ eincinerator = (util.table.deepcopy(incinerator))
 eincinerator.name = "electric-incinerator"
 eincinerator.icon = "__Flare Stack__/graphics/icon/electric-incinerator.png"
 eincinerator.minable = {mining_time = 1, result = "electric-incinerator"}
+eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.energy_usage = "800kW"
 eincinerator.energy_source =
 {
@@ -211,6 +214,7 @@ ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 ventstack.name = "vent-stack"
 ventstack.icon = "__Flare Stack__/graphics/icon/vent-stack.png"
 ventstack.minable = {mining_time = 1, result = "vent-stack"}
+ventstack.fast_replaceable_group = "fluid-incinerator"
 ventstack.crafting_categories = {"flaring"}
 ventstack.energy_source.emissions = 8
 ventstack.working_visualisations =
