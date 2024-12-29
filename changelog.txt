@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.10
+Date: 04. 01. 2021
+  Changes:
+    - Flare stack and gas vent should now be unlocked appropriately when using Angel's Petrochem
+---------------------------------------------------------------------------------------------------
 Version: 2.2.9
 Date: 23. 12. 2020
   Changes:
