@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.7
+Date: 25. 09. 2020
+  Bugfixes:
+    - Changed flaring and incineration recipe generation to avoid startup error
+    - Flare stacks, vents and incinerators produce pollution like they should
+---------------------------------------------------------------------------------------------------
 Version: 2.2.6
 Date: 30. 03. 2020
   Changes:

@@ -51,8 +51,9 @@ function incinerateRecipe(item, category, craft_category)
       category = craft_category,
       enabled = true,
       hidden = true,
-      -- energy_required = 0.5,
-      energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
+      -- this is now done through incinerator crafting speed
+      -- energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
+      energy_required = 1,
       ingredients =
       {
         {item.name, 1}
@@ -66,7 +67,7 @@ function incinerateRecipe(item, category, craft_category)
   })
 end
 
--- create incineration recipe for any item that isn't chemical fuel
+-- create incineration recipe for any item that isn't chemical fuel, and also wood
 for ki, vi in pairs(data.raw.item) do
   if not (vi.fuel_value and vi.fuel_category and vi.fuel_category == "chemical") then
     incinerateRecipe(vi, "item", "incineration")

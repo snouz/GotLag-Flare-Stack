@@ -1,9 +1,18 @@
+local ITEM_BURN_RATE_TOOLTIP = {}
+if settings.startup["flare-stack-item-rate"].value == 1 then
+  ITEM_BURN_RATE_TOOLTIP = {"flare-tooltips.item-burn-rate-single", settings.startup["flare-stack-item-rate"].value}
+else
+  ITEM_BURN_RATE_TOOLTIP = {"flare-tooltips.item-burn-rate", settings.startup["flare-stack-item-rate"].value}
+end
+local FLUID_BURN_RATE_TOOLTIP = {"flare-tooltips.fluid-burn-rate", settings.startup["flare-stack-fluid-rate"].value}
+
 data:extend(
 {
   -- Flare Stack *************************************************************************
   {
     type = "furnace",
     name = "flare-stack",
+    localised_description = FLUID_BURN_RATE_TOOLTIP,
     icon = "__Flare Stack__/graphics/icon/flare-stack.png",
     icon_size = 32,
     flags = {"placeable-neutral","player-creation"},
@@ -21,7 +30,7 @@ data:extend(
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions = 8
+      emissions_per_minute = 8
     },
     energy_usage = "1kW",
     ingredient_count = 1,
@@ -49,7 +58,8 @@ data:extend(
           shift = {0, -5},
           run_mode="backward"
         },
-        light = {intensity = 1, size = 32}
+        light = {intensity = 1, size = 32},
+        constant_speed = true
       }
     },
     vehicle_impact_sound =
@@ -169,10 +179,12 @@ data:extend(
 -- Incinerator ***************************************************************************
 incinerator = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 incinerator.name = "incinerator"
+incinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
 incinerator.icon = "__Flare Stack__/graphics/icon/incinerator.png"
 incinerator.minable = {mining_time = 1, result = "incinerator"}
 incinerator.fast_replaceable_group = "item-incinerator"
 incinerator.crafting_categories = {"incineration"}
+incinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 incinerator.energy_usage = "320kW"
 incinerator.working_visualisations = nil
 incinerator.animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
@@ -181,7 +193,7 @@ incinerator.energy_source =
   type = "burner",
   effectivity = 1,
   fuel_inventory_size = 1,
-  emissions = 0.05,
+  emissions_per_minute = 8,
   light_flicker =
   {
     minimum_intensity = 0,
@@ -208,16 +220,18 @@ incinerator.fluid_boxes = nil
 -- Electric Incinerator ******************************************************************
 eincinerator = (util.table.deepcopy(incinerator))
 eincinerator.name = "electric-incinerator"
+eincinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
 eincinerator.icon = "__Flare Stack__/graphics/icon/electric-incinerator.png"
 eincinerator.minable = {mining_time = 1, result = "electric-incinerator"}
 eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
+eincinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 eincinerator.energy_usage = "320kW"
 eincinerator.energy_source =
 {
   type = "electric",
   usage_priority = "secondary-input",
-  emissions = 0.05,
+  emissions_per_minute = 8,
   drain = "0W"
 }
 eincinerator.working_visualisations =
@@ -234,18 +248,21 @@ eincinerator.working_visualisations =
       animation_speed = 0.4,
       scale = 1.5,
       run_mode="backward"
-    }
+    },
+    constant_speed = true
   }
 }
 
 -- Vent Stack ****************************************************************************
 ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 ventstack.name = "vent-stack"
+ventstack.localised_description = FLUID_BURN_RATE_TOOLTIP
 ventstack.icon = "__Flare Stack__/graphics/icon/vent-stack.png"
 ventstack.minable = {mining_time = 1, result = "vent-stack"}
 ventstack.fast_replaceable_group = "fluid-incinerator"
 ventstack.crafting_categories = {"flaring"}
-ventstack.energy_source.emissions = 8
+ventstack.crafting_speed = 1
+ventstack.energy_source.emissions_per_minute = 8
 ventstack.working_visualisations =
 {
   {
@@ -260,7 +277,8 @@ ventstack.working_visualisations =
       animation_speed = 0.5,
       scale = 1.5,
       run_mode="backward"
-    }
+    },
+    constant_speed = true
   }
 }
 ventstack.animation.filename = "__Flare Stack__/graphics/entity/vent-stack.png"
