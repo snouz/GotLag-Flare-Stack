@@ -1,7 +1,9 @@
 -- generate flare recipe for every fluid
 for ki, vi in pairs(data.raw.fluid) do
   local newicons
-  if vi.icons then
+  if vi.iconsize ~= 32 then
+    newicons = {}
+  elseif vi.icons then
     newicons = table.deepcopy(vi.icons)
   else
     newicons = {{icon = vi.icon}}
@@ -55,7 +57,9 @@ end
 
 function incinerateRecipe(item, category)
   local newicons
-  if item.icons then
+  if item.icon_size ~= 32 then
+    newicons = {}
+  elseif item.icons then
     newicons = table.deepcopy(item.icons)
   else
     newicons = {{icon = item.icon}}

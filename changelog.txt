@@ -3,3 +3,13 @@ Version: 2.1.7
 Date: 16. 02. 2018
   Bugfixes:
     - Updated to meet new prototype definition requirements added in Factorio 0.16.24
+---------------------------------------------------------------------------------------------------
+Version: 2.2.0
+Date: 27. 02. 2019
+  Changes:
+    - Updated to Factorio 0.17
+---------------------------------------------------------------------------------------------------
+Version: 2.2.1
+Date: 28. 02. 2019
+  Bugfixes:
+    - Fixed crash when creating incineration recipes for items with changed icon sizes
