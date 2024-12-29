@@ -163,7 +163,10 @@ incinerator.energy_source =
       name = "incinerator-smoke",
       deviation = {0.1, 0.1},
       frequency = 15,
-      position = {0.0, -4},
+      north_position = {0.0, -4},
+      south_position = {0.0, -4},
+      east_position = {0.0, -4},
+      west_position = {0.0, -4},
       starting_vertical_speed = 0.08,
       starting_frame_deviation = 60
     }
