@@ -31,7 +31,7 @@ for ki, vi in pairs(data.raw.fluid) do
       {
         {type="fluid", name=vi.name, amount=settings.startup["flare-stack-fluid-rate"].value}
       },
-      results = { },
+      results = {},
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -56,9 +56,9 @@ function incinerateRecipe(item, category, craft_category)
       energy_required = 1,
       ingredients =
       {
-        {item.name, 1}
+        {type = item.type, name = item.name, amount = 1}
       },
-      results = { },
+      results = {},
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -78,6 +78,7 @@ end
 -- wood is a chemical fuel but we want to incinerate it anyway
 incinerateRecipe(data.raw["item"]["wood"], "item", "incineration")
 
+
 -- non-item categories to incinerate too
 category_list =
 {
@@ -90,7 +91,10 @@ category_list =
   "repair-tool"
 }
 for _, c in pairs(category_list) do
-  for _, i in pairs(data.raw[c]) do
-    incinerateRecipe(i, c, "incineration")
+  if (data.raw.item[c] ~= nil) then
+    for _, i in pairs(data.raw.item[c]) do
+      incinerateRecipe(i, c, "incineration")
+    end
   end
 end
+

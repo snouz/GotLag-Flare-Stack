@@ -8,12 +8,12 @@ data:extend(
     enabled = false,
     ingredients =
     {
-      {"iron-plate", 5},
-      {"iron-gear-wheel", 5},
-      {"electronic-circuit", 2},
-      {"pipe", 5}
+      {type = "item", name = "iron-plate", amount = 5},
+      {type = "item", name = "iron-gear-wheel", amount = 5},
+      {type = "item", name = "electronic-circuit", amount = 2},
+      {type = "item", name = "pipe", amount = 5}
     },
-    result = "vent-stack"
+    results = {{type = "item", name = "vent-stack", amount = 1}}
   },
   
   -- Venting recipes *********************************************************************
@@ -31,12 +31,12 @@ data:extend(
     enabled = false,
     ingredients =
     {
-      {"steel-plate", 5},
-      {"iron-gear-wheel", 5},
-      {"electronic-circuit", 2},
-      {"pipe", 5}
+      {type = "item", name = "steel-plate", amount = 5},
+      {type = "item", name = "iron-gear-wheel", amount = 5},
+      {type = "item", name = "electronic-circuit", amount = 2},
+      {type = "item", name = "pipe", amount = 5}
     },
-    result = "flare-stack"
+    results = {{type = "item", name = "flare-stack", amount = 1}}
   },
   
   -- Flaring recipes *********************************************************************
@@ -54,12 +54,12 @@ data:extend(
     enabled = true,
     ingredients =
     {
-      {"stone-furnace", 1},
-      {"iron-gear-wheel", 5},
-      {"electronic-circuit", 2},
-      {"pipe", 5}
+      {type = "item", name = "stone-furnace", amount = 1},
+      {type = "item", name = "iron-gear-wheel", amount = 5},
+      {type = "item", name = "electronic-circuit", amount = 2},
+      {type = "item", name = "pipe", amount = 5}
     },
-    result = "incinerator"
+    results = {{type = "item", name = "incinerator", amount = 1}}
   },
 })
   -- Electric Incinerator ****************************************************************
@@ -71,21 +71,21 @@ eincinerator =
   enabled = false,
   ingredients =
   {
-    {"stone-furnace", 1},
-    {"iron-gear-wheel", 5},
-    {"electronic-circuit", 5},
-    {"pipe", 5}
+    {type = "item", name = "stone-furnace", amount = 1},
+    {type = "item", name = "iron-gear-wheel", amount = 5},
+    {type = "item", name = "electronic-circuit", amount = 5},
+    {type = "item", name = "pipe", amount = 5}
   },
-  result = "electric-incinerator"
+  results = {{type = "item", name = "electric-incinerator", amount = 1}}
 }
 
 if mods["Electric Furnaces"] then
   eincinerator.ingredients =
   {
-    {"electric-stone-furnace", 1},
-    {"iron-gear-wheel", 5},
-    {"electronic-circuit", 2},
-    {"pipe", 5}
+    {type = "item", name = "electric-stone-furnace", amount = 1},
+    {type = "item", name = "iron-gear-wheel", amount = 5},
+    {type = "item", name = "electronic-circuit", amount = 2},
+    {type = "item", name = "pipe", amount = 5}
   }
 end
 
