@@ -117,7 +117,7 @@ data:extend(
       },
       {
         production_type = "output",
-        base_area = 0,
+        base_area = 1,
         base_level = 1,
         pipe_connections = { }
       }
