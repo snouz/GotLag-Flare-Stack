@@ -51,7 +51,8 @@ function incinerateRecipe(item, category, craft_category)
       category = craft_category,
       enabled = true,
       hidden = true,
-      energy_required = 0.5,
+      -- energy_required = 0.5,
+      energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
       ingredients =
       {
         {item.name, 1}
