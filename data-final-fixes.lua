@@ -34,28 +34,28 @@ for ki, vi in pairs(data.raw.fluid) do
 end
 
 -- returns true if string fuel1 represents a higher energy value than string fuel2, eg "8MJ" > "20kJ" is true
-function fuelGreaterThan(fuel1, fuel2)
-  local fuel_suffix_list =
-  {
-    ["J"] = 0,
-    ["kJ"] = 3,
-    ["KJ"] = 3,
-    ["MJ"] = 6,
-    ["GJ"] = 9,
-    ["TJ"] = 12,
-  }
-  local exp1 = fuel_suffix_list[string.sub(fuel1,string.find(fuel1, "%a+"))]
-  local exp2 = fuel_suffix_list[string.sub(fuel2,string.find(fuel2, "%a+"))]
-  if exp1 == exp2 then
-    local num1 = tonumber(string.sub(fuel1,string.find(fuel1, "%d+")))
-    local num2 = tonumber(string.sub(fuel2,string.find(fuel2, "%d+")))
-    return num1 > num2
-  else
-    return exp1 > exp2
-  end
-end
+-- function fuelGreaterThan(fuel1, fuel2)
+  -- local fuel_suffix_list =
+  -- {
+    -- ["J"] = 0,
+    -- ["kJ"] = 3,
+    -- ["KJ"] = 3,
+    -- ["MJ"] = 6,
+    -- ["GJ"] = 9,
+    -- ["TJ"] = 12,
+  -- }
+  -- local exp1 = fuel_suffix_list[string.sub(fuel1,string.find(fuel1, "%a+"))]
+  -- local exp2 = fuel_suffix_list[string.sub(fuel2,string.find(fuel2, "%a+"))]
+  -- if exp1 == exp2 then
+    -- local num1 = tonumber(string.sub(fuel1,string.find(fuel1, "%d+")))
+    -- local num2 = tonumber(string.sub(fuel2,string.find(fuel2, "%d+")))
+    -- return num1 > num2
+  -- else
+    -- return exp1 > exp2
+  -- end
+-- end
 
-function incinerateRecipe(item, category)
+function incinerateRecipe(item, category, craft_category)
   local newicons
   if item.icon_size ~= 32 then
     newicons = {}
@@ -69,7 +69,7 @@ function incinerateRecipe(item, category)
     {
       type = "recipe",
       name = category.."-"..item.name.."-incineration",
-      category = "incineration",
+      category = craft_category,
       enabled = true,
       hidden = true,
       energy_required = 0.5,
@@ -98,10 +98,14 @@ end
 
 for ki, vi in pairs(data.raw.item) do
   -- create incineration recipe for any item, and any chemical fuel with less energy than coal
-  if not (vi.fuel_value and vi.fuel_category and vi.fuel_category == "chemical" and not fuelGreaterThan(coal_value, vi.fuel_value)) then
-    incinerateRecipe(vi, "item")
+  if not (vi.fuel_value and vi.fuel_category and vi.fuel_category == "chemical") then
+    incinerateRecipe(vi, "item", "incineration")
+  elseif vi.name ~= "wood" then
+    incinerateRecipe(vi, "item", "fuel-incineration")
   end
 end
+
+incinerateRecipe(data.raw["item"]["wood"], "item", "incineration")
 
 category_list =
 {
@@ -115,6 +119,6 @@ category_list =
 }
 for _, c in pairs(category_list) do
   for _, i in pairs(data.raw[c]) do
-    incinerateRecipe(i, c)
+    incinerateRecipe(i, c, "incineration")
   end
 end

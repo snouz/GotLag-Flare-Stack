@@ -5,7 +5,7 @@ data:extend(
     type = "recipe",
     name = "vent-stack",
     energy_required = 2,
-    enabled = true,
+    enabled = false,
     ingredients =
     {
       {"iron-plate", 5},
@@ -68,7 +68,7 @@ eincinerator =
   type = "recipe",
   name = "electric-incinerator",
   energy_required = 2,
-  enabled = true,
+  enabled = false,
   ingredients =
   {
     {"stone-furnace", 1},
@@ -79,7 +79,7 @@ eincinerator =
   result = "electric-incinerator"
 }
 
-if data.raw["furnace"]["electric-stone-furnace"] then
+if mods["Electric Furnaces"] then
   eincinerator.ingredients =
   {
     {"electric-stone-furnace", 1},
@@ -97,5 +97,9 @@ data:extend(
   {
     type = "recipe-category",
     name = "incineration"
+  },
+  {
+    type = "recipe-category",
+    name = "fuel-incineration"
   }
 })

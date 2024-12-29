@@ -1,15 +1,22 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.1.7
-Date: 16. 02. 2018
+Version: 2.2.2
+Date: 08. 03. 2019
+  Changes:
+    - Changed gas vent and electric incinerator to unlock after researching suitable technologies
+    - Incinerators will not destroy fuel items (except wood), electric incinerators will destroy anything
+    - Incinerator power use decreased to 320 kW
+---------------------------------------------------------------------------------------------------
+Version: 2.2.1
+Date: 28. 02. 2019
   Bugfixes:
-    - Updated to meet new prototype definition requirements added in Factorio 0.16.24
+    - Fixed crash when creating incineration recipes for items with changed icon sizes
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.0
 Date: 27. 02. 2019
   Changes:
     - Updated to Factorio 0.17
 ---------------------------------------------------------------------------------------------------
-Version: 2.2.1
-Date: 28. 02. 2019
+Version: 2.1.7
+Date: 16. 02. 2018
   Bugfixes:
-    - Fixed crash when creating incineration recipes for items with changed icon sizes
+    - Updated to meet new prototype definition requirements added in Factorio 0.16.24

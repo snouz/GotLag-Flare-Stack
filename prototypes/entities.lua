@@ -146,7 +146,7 @@ incinerator.icon = "__Flare Stack__/graphics/icon/incinerator.png"
 incinerator.minable = {mining_time = 1, result = "incinerator"}
 incinerator.fast_replaceable_group = "item-incinerator"
 incinerator.crafting_categories = {"incineration"}
-incinerator.energy_usage = "800kW"
+incinerator.energy_usage = "320kW"
 incinerator.working_visualisations = nil
 incinerator.animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
 incinerator.energy_source =
@@ -154,7 +154,7 @@ incinerator.energy_source =
   type = "burner",
   effectivity = 1,
   fuel_inventory_size = 1,
-  emissions = 0.02,
+  emissions = 0.05,
   light_flicker =
   {
     minimum_intensity = 0,
@@ -184,12 +184,14 @@ eincinerator.name = "electric-incinerator"
 eincinerator.icon = "__Flare Stack__/graphics/icon/electric-incinerator.png"
 eincinerator.minable = {mining_time = 1, result = "electric-incinerator"}
 eincinerator.fast_replaceable_group = "item-incinerator"
-eincinerator.energy_usage = "800kW"
+eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
+eincinerator.energy_usage = "320kW"
 eincinerator.energy_source =
 {
   type = "electric",
   usage_priority = "secondary-input",
-  emissions = 0.04
+  emissions = 0.05,
+  drain = "0W"
 }
 eincinerator.working_visualisations =
 {
