@@ -14,16 +14,17 @@ for ki, vi in pairs(data.raw.fluid) do
       category = "flaring",
       enabled = true,
       hidden = true,
-      energy_required = 0.5,
+      energy_required = 1,
       ingredients =
       {
-        {type="fluid", name=vi.name, amount=5}
+        {type="fluid", name=vi.name, amount=settings.startup["flare-stack-fluid-rate"].value}
       },
       results =
       {
         {type="fluid", name=vi.name, amount=0}
       },
       icons = newicons,
+      icon_size = 32,
       subgroup = "fluid-recipes",
       order = "z[incineration]"
     }
@@ -35,10 +36,11 @@ function fuelGreaterThan(fuel1, fuel2)
   local fuel_suffix_list =
   {
     ["J"] = 0,
-    ["kJ"] = 1,
-    ["MJ"] = 2,
-    ["GJ"] = 3,
-    ["TJ"] = 4,
+    ["kJ"] = 3,
+    ["KJ"] = 3,
+    ["MJ"] = 6,
+    ["GJ"] = 9,
+    ["TJ"] = 12,
   }
   local exp1 = fuel_suffix_list[string.sub(fuel1,string.find(fuel1, "%a+"))]
   local exp2 = fuel_suffix_list[string.sub(fuel2,string.find(fuel2, "%a+"))]
@@ -76,6 +78,7 @@ function incinerateRecipe(item, category)
         {type="fluid", name="water", amount=0}
       },
       icons = newicons,
+      icon_size = 32,
       subgroup = "fluid-recipes",
       order = "zz[incineration]"
     }
@@ -91,7 +94,7 @@ end
 
 for ki, vi in pairs(data.raw.item) do
   -- create incineration recipe for any item, and any chemical fuel with less energy than coal
-  if not (vi.fuel_category and vi.fuel_category == "chemical" and not fuelGreaterThan(coal_value, vi.fuel_value)) then
+  if not (vi.fuel_value and vi.fuel_category and vi.fuel_category == "chemical" and not fuelGreaterThan(coal_value, vi.fuel_value)) then
     incinerateRecipe(vi, "item")
   end
 end

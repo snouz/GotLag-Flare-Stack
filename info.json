@@ -1,9 +1,9 @@
 {
 	"name": "Flare Stack",
-	"version": "2.1.4",
+	"version": "2.1.6",
 	"title": "Flare Stack",
 	"author": "GotLag",
 	"homepage": "https://forums.factorio.com/viewtopic.php?f=93&t=21586",
 	"description": "Adds structures to dispose of unwanted items and fluids.",
-	"factorio_version": "0.15"
+	"factorio_version": "0.16"
 }

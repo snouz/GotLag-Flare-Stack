@@ -5,6 +5,7 @@ data:extend(
     type = "furnace",
     name = "flare-stack",
     icon = "__Flare Stack__/graphics/icon/flare-stack.png",
+    icon_size = 32,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "flare-stack"},
     max_health = 250,
@@ -107,7 +108,7 @@ data:extend(
           }
         },
         pipe_covers = pipecoverspictures(),
-        base_area = 0.1,
+        base_area = settings.startup["flare-stack-fluid-rate"].value / 10,
         base_level = -1,
         pipe_connections =
         {
@@ -125,7 +126,7 @@ data:extend(
   },
   
   -- Incinerator smoke
-  smoke {
+  trivial_smoke {
     name = "incinerator-smoke",
     color = {r = 0.3, g = 0.3, b = 0.3, a = 0.3},
     duration = 150,
