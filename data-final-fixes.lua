@@ -1,5 +1,12 @@
 -- generate flare recipe for every fluid
-for ki, vi in pairs(data.raw.fluid) do 
+for ki, vi in pairs(data.raw.fluid) do
+  local newicons
+  if vi.icons then
+    newicons = table.deepcopy(vi.icons)
+  else
+    newicons = {{icon = vi.icon}}
+  end
+  table.insert(newicons, {icon = "__Flare Stack__/graphics/icon/no.png"})
   data:extend({
     {
       type = "recipe",
@@ -16,13 +23,11 @@ for ki, vi in pairs(data.raw.fluid) do
       {
         {type="fluid", name=vi.name, amount=0}
       },
-      -- icon = "__Flare Stack__/graphics/icon/no.png",
-      icons = vi.icons or {{icon = vi.icon}},
+      icons = newicons,
       subgroup = "fluid-recipes",
       order = "z[incineration]"
     }
   })
-  table.insert(data.raw.recipe[vi.name.."-flaring"].icons, {icon = "__Flare Stack__/graphics/icon/no.png"})
 end
 
 -- returns true if string fuel1 represents a higher energy value than string fuel2, eg "8MJ" > "20kJ" is true
@@ -47,6 +52,13 @@ function fuelGreaterThan(fuel1, fuel2)
 end
 
 function incinerateRecipe(item, category)
+  local newicons
+  if item.icons then
+    newicons = table.deepcopy(item.icons)
+  else
+    newicons = {{icon = item.icon}}
+  end
+  table.insert(newicons, {icon = "__Flare Stack__/graphics/icon/no.png"})
   data:extend({
     {
       type = "recipe",
@@ -63,13 +75,11 @@ function incinerateRecipe(item, category)
       {
         {type="fluid", name="water", amount=0}
       },
-      icons = item.icons or {{icon = item.icon}},
-      -- icon = "__Flare Stack__/graphics/icon/no.png",
+      icons = newicons,
       subgroup = "fluid-recipes",
       order = "zz[incineration]"
     }
   })
-  table.insert(data.raw.recipe[category.."-"..item.name.."-incineration"].icons, {icon = "__Flare Stack__/graphics/icon/no.png"})
 end
 
 -- Get fuel value for coal if it exists, else default to vanilla value
