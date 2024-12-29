@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.3
+Date: 10. 03. 2019
+  Bugfixes:
+    - Fixed electric incinerator and gas vent not being enabled if tech already researched
+---------------------------------------------------------------------------------------------------
 Version: 2.2.2
 Date: 08. 03. 2019
   Changes:
