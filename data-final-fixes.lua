@@ -1,7 +1,7 @@
 -- returns icon/icons always in the form of a table of icons
 function get_icons(prototype)
   if prototype.icons then
-    return prototype.icons
+    return table.deepcopy(prototype.icons)
   else
     return {{
       icon = prototype.icon,
