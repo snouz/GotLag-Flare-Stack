@@ -14,6 +14,7 @@ data:extend(
     dying_explosion = "medium-explosion",
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    drawing_box = {{-0.5, -4.0}, {0.5, 0.5}},
     crafting_categories = {"flaring"},
     crafting_speed = 1,
     energy_source =
@@ -127,15 +128,41 @@ data:extend(
   },
   
   -- Incinerator smoke
-  trivial_smoke {
+  -- trivial_smoke {
+    -- name = "incinerator-smoke",
+    -- color = {r = 0.3, g = 0.3, b = 0.3, a = 0.3},
+    -- duration = 150,
+    -- spread_duration = 100,
+    -- fade_away_duration = 100,
+    -- start_scale = 0.4,
+    -- end_scale = 1.5,
+    -- affected_by_wind = true
+  -- }
+  
+  {
+    type = "trivial-smoke",
     name = "incinerator-smoke",
-    color = {r = 0.3, g = 0.3, b = 0.3, a = 0.3},
     duration = 150,
-    spread_duration = 100,
+    fade_in_duration = 0,
     fade_away_duration = 100,
+    spread_duration = 100,
     start_scale = 0.4,
     end_scale = 1.5,
-    affected_by_wind = true
+    color = {r = 0.3, g = 0.3, b = 0.3, a = 0.3},
+    cyclic = true,
+    affected_by_wind = true,
+    animation =
+    {
+      width = 152,
+      height = 120,
+      line_length = 5,
+      frame_count = 60,
+      shift = {-0.53125, -0.4375},
+      priority = "high",
+      animation_speed = 0.25,
+      filename = "__base__/graphics/entity/smoke/smoke.png",
+      flags = { "smoke" }
+    }
   }
 })
 

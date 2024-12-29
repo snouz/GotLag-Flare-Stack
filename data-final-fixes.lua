@@ -1,14 +1,24 @@
+-- returns icon/icons always in the form of a table of icons
+function get_icons(prototype)
+  if prototype.icons then
+    return prototype.icons
+  else
+    return {{
+      icon = prototype.icon,
+      icon_size = prototype.icon_size,
+      icon_mipmaps = prototype.icon_mipmaps
+    }}
+  end
+end
+local no_icon = {
+  icon = "__Flare Stack__/graphics/icon/no.png",
+  icon_size = 32
+}
+
 -- generate flare recipe for every fluid
 for ki, vi in pairs(data.raw.fluid) do
-  local newicons
-  if vi.iconsize ~= 32 then
-    newicons = {}
-  elseif vi.icons then
-    newicons = table.deepcopy(vi.icons)
-  else
-    newicons = {{icon = vi.icon}}
-  end
-  table.insert(newicons, {icon = "__Flare Stack__/graphics/icon/no.png"})
+  local newicons = get_icons(vi)
+  table.insert(newicons, no_icon)
   data:extend({
     {
       type = "recipe",
@@ -22,9 +32,6 @@ for ki, vi in pairs(data.raw.fluid) do
         {type="fluid", name=vi.name, amount=settings.startup["flare-stack-fluid-rate"].value}
       },
       results = { },
-      -- {
-        -- {type="fluid", name=vi.name, amount=0}
-      -- },
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -33,38 +40,10 @@ for ki, vi in pairs(data.raw.fluid) do
   })
 end
 
--- returns true if string fuel1 represents a higher energy value than string fuel2, eg "8MJ" > "20kJ" is true
--- function fuelGreaterThan(fuel1, fuel2)
-  -- local fuel_suffix_list =
-  -- {
-    -- ["J"] = 0,
-    -- ["kJ"] = 3,
-    -- ["KJ"] = 3,
-    -- ["MJ"] = 6,
-    -- ["GJ"] = 9,
-    -- ["TJ"] = 12,
-  -- }
-  -- local exp1 = fuel_suffix_list[string.sub(fuel1,string.find(fuel1, "%a+"))]
-  -- local exp2 = fuel_suffix_list[string.sub(fuel2,string.find(fuel2, "%a+"))]
-  -- if exp1 == exp2 then
-    -- local num1 = tonumber(string.sub(fuel1,string.find(fuel1, "%d+")))
-    -- local num2 = tonumber(string.sub(fuel2,string.find(fuel2, "%d+")))
-    -- return num1 > num2
-  -- else
-    -- return exp1 > exp2
-  -- end
--- end
-
+-- generates a recipe to incinerate the specified non-fluid prototype
 function incinerateRecipe(item, category, craft_category)
-  local newicons
-  if item.icon_size ~= 32 then
-    newicons = {}
-  elseif item.icons then
-    newicons = table.deepcopy(item.icons)
-  else
-    newicons = {{icon = item.icon}}
-  end
-  table.insert(newicons, {icon = "__Flare Stack__/graphics/icon/no.png"})
+  local newicons = get_icons(item)
+  table.insert(newicons, no_icon)
   data:extend({
     {
       type = "recipe",
@@ -78,9 +57,6 @@ function incinerateRecipe(item, category, craft_category)
         {item.name, 1}
       },
       results = { },
-      -- {
-        -- {type="fluid", name="water", amount=0}
-      -- },
       icons = newicons,
       icon_size = 32,
       subgroup = "fluid-recipes",
@@ -89,24 +65,18 @@ function incinerateRecipe(item, category, craft_category)
   })
 end
 
--- Get fuel value for coal if it exists, else default to vanilla value
-if data.raw.item["coal"] and data.raw.item["coal"].fuel_value then
-  coal_value = data.raw.item["coal"].fuel_value
-else
-  coal_value = "4MJ"
-end
-
+-- create incineration recipe for any item that isn't chemical fuel
 for ki, vi in pairs(data.raw.item) do
-  -- create incineration recipe for any item, and any chemical fuel with less energy than coal
   if not (vi.fuel_value and vi.fuel_category and vi.fuel_category == "chemical") then
     incinerateRecipe(vi, "item", "incineration")
   elseif vi.name ~= "wood" then
     incinerateRecipe(vi, "item", "fuel-incineration")
   end
 end
-
+-- wood is a chemical fuel but we want to incinerate it anyway
 incinerateRecipe(data.raw["item"]["wood"], "item", "incineration")
 
+-- non-item categories to incinerate too
 category_list =
 {
   "capsule",
