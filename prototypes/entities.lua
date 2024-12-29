@@ -84,9 +84,19 @@ data:extend(
           {
             filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
             priority = "extra-high",
-            width = 44,
-            height = 30,
-            shift = {0, -0.96875}
+            width = 64,
+            height = 64,
+            frame_count = 1,
+            shift = util.by_pixel(0, -32),
+            hr_version = {
+              filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+              priority = "extra-high",
+              width = 128,
+              height = 128,
+              frame_count = 1,
+              shift = util.by_pixel(0, -32),
+              scale = 0.5
+            }
           },
           west =
           {
@@ -133,7 +143,7 @@ incinerator.name = "incinerator"
 incinerator.icon = "__Flare Stack__/graphics/icon/incinerator.png"
 incinerator.minable = {mining_time = 1, result = "incinerator"}
 incinerator.crafting_categories = {"incineration"}
-incinerator.energy_usage = "1600kW"
+incinerator.energy_usage = "800kW"
 incinerator.working_visualisations = nil
 incinerator.animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
 incinerator.energy_source =
@@ -160,6 +170,7 @@ incinerator.energy_source =
   }
 }
 incinerator.source_inventory_size = 1
+incinerator.fluid_boxes = nil
 
 -- Electric Incinerator ******************************************************************
 eincinerator = (util.table.deepcopy(incinerator))
@@ -196,8 +207,8 @@ ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 ventstack.name = "vent-stack"
 ventstack.icon = "__Flare Stack__/graphics/icon/vent-stack.png"
 ventstack.minable = {mining_time = 1, result = "vent-stack"}
-ventstack.crafting_categories = {"gas-venting"}
-ventstack.energy_source.emissions = 16
+ventstack.crafting_categories = {"flaring"}
+ventstack.energy_source.emissions = 8
 ventstack.working_visualisations =
 {
   {
