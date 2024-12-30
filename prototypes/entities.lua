@@ -116,7 +116,7 @@ data:extend(
         volume = settings.startup["flare-stack-fluid-rate"].value * 2,
         pipe_connections =
         {
-          { flow_direction = "input", direction = defines.direction.south, position = {0, -0.289} }
+          { flow_direction = "input", direction = defines.direction.south, position = {0, 0} }
         }
       }
     }
