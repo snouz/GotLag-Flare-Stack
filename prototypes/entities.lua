@@ -24,7 +24,7 @@ data:extend(
     max_health = 250,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
+    collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     crafting_categories = {"flaring"},
     crafting_speed = 1,
@@ -73,15 +73,31 @@ data:extend(
         {
           animation =
           {
-            filename = entity .. "flare-stack-fire.png",
-            priority = "extra-high",
-            frame_count = 29,
-            width = 48,
-            height = 105,
-            shift = {0, -5},
-            run_mode = "backward"
+            layers = {
+              {
+                filename = entity .. "flare-stack-fire.png",
+                priority = "high",
+                frame_count = 29,
+                width = 48,
+                height = 105,
+                scale = 0.5,
+                shift = {0, -4.3},
+                draw_as_glow = true,
+                run_mode = "backward"
+              },
+              {
+                filename = entity .. "flare-stack-glow.png",
+                priority = "high",
+                repeat_count = 29,
+                width = 320,
+                height = 320,
+                scale = 0.5,
+                shift = {1.5, -1.59375},
+                draw_as_light = true,
+              }
+            }
           },
-          light = {intensity = 1, size = 32},
+          light = {intensity = 0.1, size = 5},
           constant_speed = true
         }
       }
