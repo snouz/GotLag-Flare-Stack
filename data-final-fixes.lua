@@ -39,32 +39,32 @@ for ki, vi in pairs(data.raw.fluid) do
     }
   })
 end
-
+ 
 -- generates a recipe to incinerate the specified non-fluid prototype
 function incinerateRecipe(item, category, craft_category)
-  local newicons = get_icons(item)
-  table.insert(newicons, no_icon)
-  data:extend({
-    {
-      type = "recipe",
-      name = category.."-"..item.name.."-incineration",
-      category = craft_category,
-      enabled = true,
-      hidden = true,
-      -- this is now done through incinerator crafting speed
-      -- energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
-      energy_required = 1,
-      ingredients =
-      {
-        {type = item.type, name = item.name, amount = 1}
-      },
-      results = {},
-      icons = newicons,
-      icon_size = 32,
-      subgroup = "fluid-recipes",
-      order = "zz[incineration]"
-    }
-  })
+	if type(item) ~= "table" or not item.name then
+		log("Warning: 'item' is not a valid table or is missing a name in category " .. tostring(category))
+		return -- Exit the function if item is not a table or if name is missing
+	end
+ 
+	local newicons = get_icons(item)
+	table.insert(newicons, no_icon)
+	data:extend({
+	{
+		type = "recipe",
+		name = category.."-"..item.name.."-incineration",
+		category = craft_category,
+		enabled = true,
+		hidden = true,
+		energy_required = 1,
+		ingredients = {{type = item.type, name = item.name, amount = 1}},
+		results = {},
+		icons = newicons,
+		icon_size = 32,
+		subgroup = "fluid-recipes",
+		order = "zz[incineration]"
+		}
+	})
 end
 
 -- create incineration recipe for any item that isn't chemical fuel, and also wood

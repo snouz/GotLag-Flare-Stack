@@ -36,32 +36,34 @@ data:extend(
     ingredient_count = 1,
     source_inventory_size = 0,
     result_inventory_size = 0,
-    placeable_position_visualization =
-    {
-      filename = "__Flare Stack__/graphics/entity/flare-stack.png",
-      priority="high",
-      width = 160,
-      height = 160,
-      frame_count = 1,
-      shift = {1.5, -1.59375}
-    },
-    working_visualisations =
-    {
-      {
-        animation =
-        {
-          filename = "__Flare Stack__/graphics/entity/flare-stack-fire.png",
-          priority = "extra-high",
-          frame_count = 29,
-          width = 48,
-          height = 105,
-          shift = {0, -5},
-          run_mode="backward"
-        },
-        light = {intensity = 1, size = 32},
-        constant_speed = true
-      }
-    },
+	graphics_set =
+	{
+	  animation =
+	  {
+	    filename = "__Flare Stack__/graphics/entity/flare-stack.png",
+	    priority = "extra-high",
+	    width = 160,
+	    height = 160,
+	    shift = {1.5, -1.59375}
+	  },
+	  working_visualisations =
+	  {
+	    {
+	  	  animation =
+	  	  {
+	  	    filename = "__Flare Stack__/graphics/entity/flare-stack-fire.png",
+	  	    priority = "extra-high",
+	  	    frame_count = 29,
+	  	    width = 48,
+	  	    height = 105,
+	  	    shift = {0, -5},
+	  	    run_mode="backward"
+	  	  },
+	  	  light = {intensity = 1, size = 32},
+	  	  constant_speed = true
+	      }
+	  },
+	},
     vehicle_impact_sound =
     {
       filename = "__base__/sound/car-metal-impact.ogg",
@@ -76,65 +78,12 @@ data:extend(
     fluid_boxes =
     {
       {
-        production_type = "input",
-        pipe_picture =
-        {
-          north =
-          {
-            filename = "__core__/graphics/empty.png",
-            priority = "extra-high",
-            width = 1,
-            height = 1
-          },
-          east =
-          {
-            filename = "__core__/graphics/empty.png",
-            priority = "extra-high",
-            width = 1,
-            height = 1
-          },
-          south =
-          {
-            filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
-            priority = "extra-high",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            shift = util.by_pixel(0, -32),
-            hr_version = {
-              filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
-              priority = "extra-high",
-              width = 128,
-              height = 128,
-              frame_count = 1,
-              shift = util.by_pixel(0, -32),
-              scale = 0.5
-            }
-          },
-          west =
-          {
-            filename = "__core__/graphics/empty.png",
-            priority = "extra-high",
-            width = 1,
-            height = 1
-          }
-        },
+	    production_type = "input",
         pipe_covers = pipecoverspictures(),
-        volume = settings.startup["flare-stack-fluid-rate"].value,
-        base_level = -1,
-        pipe_connections =
-        {
-          { flow_direction="input", direction = defines.direction.north, position = {0.0, 0.0} }
-        }
-      -- },
-      -- {
-        -- production_type = "output",
-        -- base_area = 1,
-        -- base_level = 1,
-        -- pipe_connections = { }
-      }
+        volume = settings.startup["flare-stack-fluid-rate"].value * 10,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {0, 0} }},
+      },
     },
-    pipe_covers = pipecoverspictures()
   },
   
   -- Incinerator smoke
@@ -187,7 +136,7 @@ incinerator.crafting_categories = {"incineration"}
 incinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 incinerator.energy_usage = "320kW"
 incinerator.working_visualisations = nil
-incinerator.placeable_position_visualization.filename = "__Flare Stack__/graphics/entity/incinerator.png"
+incinerator.graphics_set.animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
 incinerator.energy_source =
 {
   type = "burner",
@@ -281,8 +230,8 @@ ventstack.working_visualisations =
     constant_speed = true
   }
 }
-ventstack.placeable_position_visualization.filename = "__Flare Stack__/graphics/entity/vent-stack.png"
-
+ventstack.graphics_set.animation.filename = "__Flare Stack__/graphics/entity/vent-stack.png"
+ 
 data:extend(
 {
   incinerator,
