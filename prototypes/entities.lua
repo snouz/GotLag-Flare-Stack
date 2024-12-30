@@ -18,6 +18,10 @@ data:extend(
     localised_description = FLUID_BURN_RATE_TOOLTIP,
     icon = icons .. "flare-stack.png",
     icon_size = 64,
+    icon_draw_specification = {
+      scale = 0.7,
+      shift = {0, -0.2},
+    },
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "flare-stack"},
     fast_replaceable_group = "fluid-incinerator",
@@ -170,10 +174,10 @@ eincinerator.graphics_set.working_visualisations[1].animation.layers =
     width = 48,
     height = 105,
     shift = {0, -4.3},
-    animation_speed = 0.4,
+    animation_speed = 0.8,
     scale = 0.5,
-    run_mode = "backward"
-  }
+    run_mode = "backward",
+  },
 }
 
 eincinerator.source_inventory_size = 1
@@ -254,17 +258,19 @@ ventstack.minable = {mining_time = 1, result = "vent-stack"}
 -- ventstack.crafting_categories = {"flaring"}
 -- ventstack.crafting_speed = 1
 -- ventstack.energy_source.emissions_per_minute = {pollution = 8}
-ventstack.graphics_set.working_visualisations[1].animation =
+ventstack.graphics_set.working_visualisations[1].animation.layers =
 {
-  filename = entity .. "smoke.png",
-  priority = "low",
-  frame_count = 29,
-  width = 48,
-  height = 105,
-  shift = {0, -4.3},
-  animation_speed = 0.5,
-  scale = 0.5,
-  run_mode = "backward"
+  {
+    filename = entity .. "smoke.png",
+    priority = "low",
+    frame_count = 29,
+    width = 48,
+    height = 105,
+    shift = {0, -4.3},
+    animation_speed = 0.8,
+    scale = 0.5,
+    run_mode = "backward",
+  },
 }
 ventstack.stateless_visualisation[1].animation.layers[1].filename = entity .. "vent-stack.png"
 
