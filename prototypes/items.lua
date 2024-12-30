@@ -1,10 +1,12 @@
+local icons = "__Flare Stack__/graphics/icon/"
+
 data:extend(
 {
   {
     type = "item",
     name = "vent-stack",
-    icon = "__Flare Stack__/graphics/icon/vent-stack.png",
-    icon_size = 32,
+    icon = icons .. "vent-stack.png",
+    icon_size = 64,
     subgroup = "production-machine",
     order = "e[chemical-plant]a",
     place_result = "vent-stack",
@@ -13,8 +15,8 @@ data:extend(
   {
     type = "item",
     name = "flare-stack",
-    icon = "__Flare Stack__/graphics/icon/flare-stack.png",
-    icon_size = 32,
+    icon = icons .. "flare-stack.png",
+    icon_size = 64,
     subgroup = "production-machine",
     order = "e[chemical-plant]b",
     place_result = "flare-stack",
@@ -23,8 +25,8 @@ data:extend(
   {
     type = "item",
     name = "incinerator",
-    icon = "__Flare Stack__/graphics/icon/incinerator.png",
-    icon_size = 32,
+    icon = icons .. "incinerator.png",
+    icon_size = 64,
     subgroup = "production-machine",
     order = "e[chemical-plant]c",
     place_result = "incinerator",
@@ -33,8 +35,8 @@ data:extend(
   {
     type = "item",
     name = "electric-incinerator",
-    icon = "__Flare Stack__/graphics/icon/electric-incinerator.png",
-    icon_size = 32,
+    icon = icons .. "electric-incinerator.png",
+    icon_size = 64,
     subgroup = "production-machine",
     order = "e[chemical-plant]d",
     place_result = "electric-incinerator",

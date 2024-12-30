@@ -1,3 +1,5 @@
+local icons = "__Flare Stack__/graphics/icon/"
+
 -- Declare a namespace
 flarestack = {}
 
@@ -14,8 +16,8 @@ function flarestack.get_icons(prototype)
   end
 end
 local no_icon = {
-  icon = "__Flare Stack__/graphics/icon/no.png",
-  icon_size = 32
+  icon = icons .. "no.png",
+  icon_size = 64
 }
 
 -- generate flare recipe for every fluid
@@ -36,7 +38,7 @@ for ki, vi in pairs(data.raw.fluid) do
       },
       results = { },
       icons = newicons,
-      icon_size = 32,
+      icon_size = 64,
       subgroup = "fluid-recipes",
       order = "z[incineration]"
     }
@@ -63,7 +65,7 @@ function flarestack.incinerateRecipe(item, category, craft_category)
       },
       results = { },
       icons = newicons,
-      icon_size = 32,
+      icon_size = 64,
       subgroup = "fluid-recipes",
       order = "zz[incineration]"
     }

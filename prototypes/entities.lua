@@ -1,3 +1,6 @@
+icons = "__Flare Stack__/graphics/icon/"
+entity = "__Flare Stack__/graphics/entity/"
+
 local ITEM_BURN_RATE_TOOLTIP = {}
 if settings.startup["flare-stack-item-rate"].value == 1 then
   ITEM_BURN_RATE_TOOLTIP = {"flare-tooltips.item-burn-rate-single", tostring(settings.startup["flare-stack-item-rate"].value)}
@@ -13,8 +16,8 @@ data:extend(
     type = "furnace",
     name = "flare-stack",
     localised_description = FLUID_BURN_RATE_TOOLTIP,
-    icon = "__Flare Stack__/graphics/icon/flare-stack.png",
-    icon_size = 32,
+    icon = icons .. "flare-stack.png",
+    icon_size = 64,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "flare-stack"},
     fast_replaceable_group = "fluid-incinerator",
@@ -39,12 +42,28 @@ data:extend(
       {
         animation =
         {
-          filename = "__Flare Stack__/graphics/entity/flare-stack.png",
-          priority="high",
-          width = 160,
-          height = 160,
-          frame_count = 1,
-          shift = {1.5, -1.59375}
+          layers = {
+            {
+              filename = entity .. "flare-stack.png",
+              priority = "high",
+              width = 320,
+              height = 320,
+              scale = 0.5,
+              frame_count = 1,
+              shift = {1.5, -1.59375}
+            },
+            {
+              filename = entity .. "flare-stack-shadow.png",
+              priority = "high",
+              width = 320,
+              height = 320,
+              scale = 0.5,
+              frame_count = 1,
+              shift = {1.5, -1.59375},
+              draw_as_shadow = true
+            },
+          }
+          
         }
       }
     },
@@ -54,13 +73,13 @@ data:extend(
         {
           animation =
           {
-            filename = "__Flare Stack__/graphics/entity/flare-stack-fire.png",
+            filename = entity .. "flare-stack-fire.png",
             priority = "extra-high",
             frame_count = 29,
             width = 48,
             height = 105,
             shift = {0, -5},
-            run_mode="backward"
+            run_mode = "backward"
           },
           light = {intensity = 1, size = 32},
           constant_speed = true
@@ -119,16 +138,16 @@ data:extend(
 local eincinerator = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 eincinerator.name = "electric-incinerator"
 eincinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
-eincinerator.icon = "__Flare Stack__/graphics/icon/electric-incinerator.png"
+eincinerator.icon = icons .. "electric-incinerator.png"
 eincinerator.minable = {mining_time = 1, result = "electric-incinerator"}
 eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
 eincinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 eincinerator.energy_usage = "320kW"
-eincinerator.stateless_visualisation[1].animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
+eincinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator.png"
 eincinerator.graphics_set.working_visualisations[1].animation =
 {
-  filename = "__Flare Stack__/graphics/entity/electric-incinerator-smoke.png",
+  filename = entity .. "electric-incinerator-smoke.png",
   priority = "extra-high",
   frame_count = 29,
   width = 48,
@@ -145,7 +164,7 @@ eincinerator.fluid_boxes = nil
 local incinerator = (util.table.deepcopy(eincinerator))
 incinerator.name = "incinerator"
 -- incinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
-incinerator.icon = "__Flare Stack__/graphics/icon/incinerator.png"
+incinerator.icon = icons .. "incinerator.png"
 incinerator.minable.result = "incinerator"
 -- incinerator.fast_replaceable_group = "item-incinerator"
 incinerator.crafting_categories = {"incineration"}
@@ -186,7 +205,7 @@ incinerator.energy_source =
 local ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 ventstack.name = "vent-stack"
 --  ventstack.localised_description = FLUID_BURN_RATE_TOOLTIP
-ventstack.icon = "__Flare Stack__/graphics/icon/vent-stack.png"
+ventstack.icon = icons .. "vent-stack.png"
 ventstack.minable = {mining_time = 1, result = "vent-stack"}
 -- ventstack.fast_replaceable_group = "fluid-incinerator"
 -- ventstack.crafting_categories = {"flaring"}
@@ -204,7 +223,7 @@ ventstack.graphics_set.working_visualisations[1].animation =
   scale = 1.5,
   run_mode="backward"
 }
-ventstack.stateless_visualisation[1].animation.filename = "__Flare Stack__/graphics/entity/vent-stack.png"
+ventstack.stateless_visualisation[1].animation.layers[1].filename = entity .. "vent-stack.png"
 
 data:extend(
 {
