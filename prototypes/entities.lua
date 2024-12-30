@@ -86,7 +86,7 @@ data:extend(
                 run_mode = "backward"
               },
               {
-                filename = entity .. "flare-stack-glow.png",
+                filename = entity .. "flare-stack-glow-top.png",
                 priority = "high",
                 repeat_count = 29,
                 width = 320,
@@ -94,10 +94,10 @@ data:extend(
                 scale = 0.5,
                 shift = {1.5, -1.59375},
                 draw_as_light = true,
-              }
+              },
             }
           },
-          light = {intensity = 0.1, size = 5},
+          --light = {intensity = 0.1, size = 5},
           constant_speed = true
         }
       }
@@ -160,19 +160,22 @@ eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
 eincinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 eincinerator.energy_usage = "320kW"
-eincinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator.png"
-eincinerator.graphics_set.working_visualisations[1].animation =
+eincinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator-electric.png"
+eincinerator.graphics_set.working_visualisations[1].animation.layers =
 {
-  filename = entity .. "electric-incinerator-smoke.png",
-  priority = "extra-high",
-  frame_count = 29,
-  width = 48,
-  height = 105,
-  shift = {-0.05, -5.65},
-  animation_speed = 0.4,
-  scale = 1.5,
-  run_mode="backward"
+  {
+    filename = entity .. "smoke.png",
+    priority = "high",
+    frame_count = 29,
+    width = 48,
+    height = 105,
+    shift = {0, -4.3},
+    animation_speed = 0.4,
+    scale = 0.5,
+    run_mode = "backward"
+  }
 }
+
 eincinerator.source_inventory_size = 1
 eincinerator.fluid_boxes = nil
 
@@ -186,8 +189,32 @@ incinerator.minable.result = "incinerator"
 incinerator.crafting_categories = {"incineration"}
 -- incinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 -- incinerator.energy_usage = "320kW"
--- incinerator.stateless_visualisation[1].animation.filename = "__Flare Stack__/graphics/entity/incinerator.png"
-incinerator.graphics_set.working_visualisations = nil
+incinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator.png"
+
+incinerator.graphics_set = {
+      working_visualisations = {
+        {
+          animation =
+          {
+            layers = {
+              {
+                filename = entity .. "flare-stack-glow-furnace.png",
+                priority = "extra-high",
+                repeat_count = 29,
+                width = 320,
+                height = 320,
+                scale = 0.5,
+                shift = {1.5, -1.59375},
+                draw_as_glow = true,
+              }
+            }
+          },
+          --light = {intensity = 0.1, size = 5},
+          constant_speed = true
+        }
+      }
+    }
+
 incinerator.energy_source =
 {
   type = "burner",
@@ -229,15 +256,15 @@ ventstack.minable = {mining_time = 1, result = "vent-stack"}
 -- ventstack.energy_source.emissions_per_minute = {pollution = 8}
 ventstack.graphics_set.working_visualisations[1].animation =
 {
-  filename = "__Flare Stack__/graphics/entity/vent-stack-fumes.png",
-  priority = "extra-high",
+  filename = entity .. "smoke.png",
+  priority = "low",
   frame_count = 29,
   width = 48,
   height = 105,
-  shift = {-0.05, -5.65},
+  shift = {0, -4.3},
   animation_speed = 0.5,
-  scale = 1.5,
-  run_mode="backward"
+  scale = 0.5,
+  run_mode = "backward"
 }
 ventstack.stateless_visualisation[1].animation.layers[1].filename = entity .. "vent-stack.png"
 
