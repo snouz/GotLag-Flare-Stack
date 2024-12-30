@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.4.0
+Date: 30. 10. 2024
+  Scripting:
+    - Updated by Pepoluan in Flare Stack Redux 2.20
+    - Prevent global namespace pollution
+    - Removal of unused fields & ineffective code
+    - Optimize object access
+    - General tidying up
+  Translation:
+    - Complete locales for de, ja, and ru using DeepL
+    - Created locales for fr using DeepL
+---------------------------------------------------------------------------------------------------
+Version: 2.3.0
+Date: 22. 10. 2024
+  Changes:
+    - Updated to 2.0 by xxehanort, Jtmzac and goakiller900
+---------------------------------------------------------------------------------------------------
 Version: 2.2.10
 Date: 04. 01. 2021
   Changes:

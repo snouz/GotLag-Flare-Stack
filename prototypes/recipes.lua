@@ -63,7 +63,7 @@ data:extend(
   },
 })
   -- Electric Incinerator ****************************************************************
-eincinerator =
+local eincinerator =
 {
   type = "recipe",
   name = "electric-incinerator",
