@@ -248,19 +248,22 @@ incinerator.energy_source =
 -- incinerator.source_inventory_size = 1
 -- incinerator.fluid_boxes = nil
 
+
+
 -- Vent Stack ****************************************************************************
-local ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
-ventstack.name = "vent-stack"
+--local ventstack = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
+--ventstack.name = "vent-stack"
 --  ventstack.localised_description = FLUID_BURN_RATE_TOOLTIP
-ventstack.icon = icons .. "vent-stack.png"
-ventstack.minable = {mining_time = 1, result = "vent-stack"}
+--ventstack.icon = icons .. "vent-stack.png"
+--ventstack.minable = {mining_time = 1, result = "vent-stack"}
 -- ventstack.fast_replaceable_group = "fluid-incinerator"
 -- ventstack.crafting_categories = {"flaring"}
 -- ventstack.crafting_speed = 1
 -- ventstack.energy_source.emissions_per_minute = {pollution = 8}
+--[[
 ventstack.graphics_set.working_visualisations[1].animation.layers =
 {
-  {
+  -{
     filename = entity .. "smoke.png",
     priority = "low",
     frame_count = 29,
@@ -273,10 +276,11 @@ ventstack.graphics_set.working_visualisations[1].animation.layers =
   },
 }
 ventstack.stateless_visualisation[1].animation.layers[1].filename = entity .. "vent-stack.png"
+]]--
 
 data:extend(
 {
   incinerator,
   eincinerator,
-  ventstack
+  --ventstack
 })

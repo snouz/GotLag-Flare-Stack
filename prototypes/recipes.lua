@@ -1,7 +1,7 @@
 data:extend(
 {
   -- Vent Stack **************************************************************************
-  {
+  --[[{
     type = "recipe",
     name = "vent-stack",
     energy_required = 2,
@@ -21,7 +21,7 @@ data:extend(
   {
     type = "recipe-category",
     name = "gas-venting"
-  },
+  },]]--
   
   -- Flare Stack *************************************************************************
   {

@@ -2,6 +2,7 @@ local icons = "__Flare Stack__/graphics/icon/"
 
 data:extend(
 {
+  --[[
   {
     type = "item",
     name = "vent-stack",
@@ -11,7 +12,7 @@ data:extend(
     order = "e[chemical-plant]a",
     place_result = "vent-stack",
     stack_size = 50
-  },
+  },]]--
   {
     type = "item",
     name = "flare-stack",
