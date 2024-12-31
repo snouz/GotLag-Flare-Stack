@@ -123,7 +123,14 @@ data:extend(
           { flow_direction = "input", direction = defines.direction.south, position = {0, 0} }
         }
       }
-    }
+    },
+    surface_conditions =
+    {
+      {
+        property = "gravity",
+        min = 0.1
+      }
+    },
   },
 
   -- Incinerator smoke

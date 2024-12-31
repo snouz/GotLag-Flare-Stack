@@ -1,10 +1,14 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.0
+Version: 3.0.0
 Date: 31. 12. 2024
   Changes:
     - Updated by snouz
     - Removed vent-stack, replaced with flare-stack which is functionally the same
     - Redone all graphics (entities, shadows, lights, icons...) in high res
+    - Added a technology for each building
+    - Reduced stack to 20 for balance
+    - Limited to 10 in one rocket
+    - Removed possibility to build in space
     - Removed the entity light
     - Reduced icons on entities
     - Fixed Pipe connection position

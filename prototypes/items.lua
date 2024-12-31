@@ -21,7 +21,8 @@ data:extend(
     subgroup = "production-machine",
     order = "e[chemical-plant]b",
     place_result = "flare-stack",
-    stack_size = 50
+    stack_size = 20,
+    weight = 100000,
   },
   {
     type = "item",
@@ -31,7 +32,8 @@ data:extend(
     subgroup = "production-machine",
     order = "e[chemical-plant]c",
     place_result = "incinerator",
-    stack_size = 50
+    stack_size = 20,
+    weight = 100000,
   },
   {
     type = "item",
@@ -41,6 +43,7 @@ data:extend(
     subgroup = "production-machine",
     order = "e[chemical-plant]d",
     place_result = "electric-incinerator",
-    stack_size = 50
+    stack_size = 20,
+    weight = 100000,
   }
 })

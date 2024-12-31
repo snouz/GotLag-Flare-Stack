@@ -51,7 +51,7 @@ data:extend(
     type = "recipe",
     name = "incinerator",
     energy_required = 2,
-    enabled = true,
+    enabled = false,
     ingredients =
     {
       {type = "item", name = "stone-furnace", amount = 1},
