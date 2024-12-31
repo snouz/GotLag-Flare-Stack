@@ -8,13 +8,14 @@ function flarestack.get_icons(prototype)
   if prototype.icons then
     return table.deepcopy(prototype.icons)
   else
-    return {{
+    return { {
       icon = prototype.icon,
       icon_size = prototype.icon_size,
       icon_mipmaps = prototype.icon_mipmaps
-    }}
+    } }
   end
 end
+
 local no_icon = {
   icon = icons .. "no.png",
   icon_size = 64
@@ -27,16 +28,17 @@ for ki, vi in pairs(data.raw.fluid) do
   data:extend({
     {
       type = "recipe",
-      name = vi.name.."-flaring",
+      name = vi.name .. "-flaring",
       category = "flaring",
       enabled = true,
-      hidden = true,
+      hidden_in_factoriopedia = true,
+      hide_from_player_crafting = true,
       energy_required = 1,
       ingredients =
       {
-        {type="fluid", name=vi.name, amount=settings.startup["flare-stack-fluid-rate"].value}
+        { type = "fluid", name = vi.name, amount = settings.startup["flare-stack-fluid-rate"].value }
       },
-      results = { },
+      results = {},
       icons = newicons,
       icon_size = 64,
       subgroup = "fluid-recipes",
@@ -52,18 +54,19 @@ function flarestack.incinerateRecipe(item, category, craft_category)
   data:extend({
     {
       type = "recipe",
-      name = category.."-"..item.name.."-incineration",
+      name = category .. "-" .. item.name .. "-incineration",
       category = craft_category,
       enabled = true,
-      hidden = true,
+      hidden_in_factoriopedia = true,
+      hide_from_player_crafting = true,
       -- this is now done through incinerator crafting speed
       -- energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
       energy_required = 1,
       ingredients =
       {
-        {type = "item", name = item.name, amount = 1}
+        { type = "item", name = item.name, amount = 1 }
       },
-      results = { },
+      results = {},
       icons = newicons,
       icon_size = 64,
       subgroup = "fluid-recipes",
