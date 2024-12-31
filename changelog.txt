@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.5.0
+Date: 31. 12. 2024
+  Changes:
+    - Updated by snouz
+    - Removed vent-stack, replaced with flare-stack which is functionally the same
+    - Redone all graphics (entities, shadows, lights, icons...) in high res
+    - Removed the entity light
+    - Reduced icons on entities
+    - Fixed Pipe connection position
+---------------------------------------------------------------------------------------------------
 Version: 2.4.0
 Date: 30. 10. 2024
   Scripting:
