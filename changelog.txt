@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.1
 Date: 01. 01. 2025
-  Changes:
+  Bugfixes:
     - Fixed not loading without Space Age (snouz)
+    - Changed position of items to just after electric furnace
+    - Unhide recipes from entity GUI (thesixthroc)
+    - Improved technology descriptions (thesixthroc)
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.0
 Date: 31. 12. 2024
