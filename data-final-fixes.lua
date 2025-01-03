@@ -29,10 +29,13 @@ for ki, vi in pairs(data.raw.fluid) do
     {
       type = "recipe",
       name = vi.name .. "-flaring",
+      localised_name = vi.name .. " flaring",
       category = "flaring",
       enabled = true,
       hidden_in_factoriopedia = true,
       hide_from_player_crafting = true,
+      hide_from_signal_gui = true,
+      --hidden = true,
       energy_required = 1,
       ingredients =
       {
@@ -41,7 +44,7 @@ for ki, vi in pairs(data.raw.fluid) do
       results = {},
       icons = newicons,
       icon_size = 64,
-      subgroup = "fluid-recipes",
+      subgroup = "flare-incineration-fluid",
       order = "z[incineration]"
     }
   })
@@ -55,10 +58,13 @@ function flarestack.incinerateRecipe(item, category, craft_category)
     {
       type = "recipe",
       name = category .. "-" .. item.name .. "-incineration",
+      localised_name = "(" .. category .. ") " .. item.name .. " incineration",
       category = craft_category,
       enabled = true,
       hidden_in_factoriopedia = true,
       hide_from_player_crafting = true,
+      hide_from_signal_gui = true,
+      --hidden = true,
       -- this is now done through incinerator crafting speed
       -- energy_required = 1.0 / settings.startup["flare-stack-item-rate"].value,
       energy_required = 1,
@@ -69,7 +75,7 @@ function flarestack.incinerateRecipe(item, category, craft_category)
       results = {},
       icons = newicons,
       icon_size = 64,
-      subgroup = "fluid-recipes",
+      subgroup = "flare-incineration-items",
       order = "zz[incineration]"
     }
   })

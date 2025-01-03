@@ -1,6 +1,6 @@
 {
 	"name": "Flare Stack",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"title": "Flare Stack",
 	"author": "GotLag",
 	"homepage": "https://forums.factorio.com/viewtopic.php?f=93&t=21586",
@@ -9,7 +9,7 @@
 	"dependencies": [
 		"base>=2.0.0",
 		"(?)deadlock_stacked_recipes",
-		"(?)DeadlockStackingForAngles",
+		"(?)DeadlockStackingForAngels",
 		"(?)DeadlockStackingForBobs",
 		"(?)DeadlockStackingForVanilla"
 	]

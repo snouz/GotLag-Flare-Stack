@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.2
+Date: 02. 01. 2025
+  Bugfixes:
+    - Prevented incineration recipes from being displayed in signals, made separate category for text icons
+---------------------------------------------------------------------------------------------------
 Version: 3.0.1
 Date: 01. 01. 2025
   Bugfixes:
