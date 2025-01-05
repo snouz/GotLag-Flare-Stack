@@ -21,33 +21,51 @@ local no_icon = {
   icon_size = 64
 }
 
+local function fluid_name_is_flarable(name)
+	if string.sub(name, 1, 10) == "parameter-" then
+		return false
+	end
+
+	if name == "fluid-unknown" then
+		return false
+	end
+
+	if name == "lava" then
+		return false
+	end
+
+	return true
+end
+
 -- generate flare recipe for every fluid
 for ki, vi in pairs(data.raw.fluid) do
-  local newicons = flarestack.get_icons(vi)
-  table.insert(newicons, no_icon)
-  data:extend({
-    {
-      type = "recipe",
-      name = vi.name .. "-flaring",
-      localised_name = vi.name .. " flaring",
-      category = "flaring",
-      enabled = true,
-      hidden_in_factoriopedia = true,
-      hide_from_player_crafting = true,
-      hide_from_signal_gui = true,
-      --hidden = true,
-      energy_required = 1,
-      ingredients =
+	if fluid_name_is_flarable(vi.name) then
+    local newicons = flarestack.get_icons(vi)
+    table.insert(newicons, no_icon)
+    data:extend({
       {
-        { type = "fluid", name = vi.name, amount = settings.startup["flare-stack-fluid-rate"].value }
-      },
-      results = {},
-      icons = newicons,
-      icon_size = 64,
-      subgroup = "flare-incineration-fluid",
-      order = "z[incineration]"
-    }
-  })
+        type = "recipe",
+        name = vi.name .. "-flaring",
+        localised_name = vi.name .. " flaring",
+        category = "flaring",
+        enabled = true,
+        hidden_in_factoriopedia = true,
+        hide_from_player_crafting = true,
+        hide_from_signal_gui = true,
+        --hidden = true,
+        energy_required = 1,
+        ingredients =
+        {
+          { type = "fluid", name = vi.name, amount = settings.startup["flare-stack-fluid-rate"].value }
+        },
+        results = {},
+        icons = newicons,
+        icon_size = 64,
+        subgroup = "flare-incineration-fluid",
+        order = "z[incineration]"
+      }
+    })
+  end
 end
 
 -- generates a recipe to incinerate the specified non-fluid prototype
