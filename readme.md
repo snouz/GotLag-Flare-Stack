@@ -14,7 +14,7 @@ Now with technologies and new graphics
 
 Gotlag | Creator
 snouz | version 3.0, new graphics
-pepoluan, xxehanort, Jtmzac, goakiller900 | code improvements, port to 2.0
+pepoluan, xxehanort, Jtmzac, goakiller900, thesixthroc | code improvements, port to 2.0
 
 
 ![](http://i.imgur.com/yOXdP5T.gif)
