@@ -1,8 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.3
+Date: 05. 01. 2025
+  Bugfixes:
+    - Avoid nonsensical flare recipes (thesixthroc)
+---------------------------------------------------------------------------------------------------
 Version: 3.0.2
 Date: 02. 01. 2025
   Bugfixes:
-    - Prevented incineration recipes from being displayed in signals, made separate category for text icons
+    - Prevented incineration recipes from being displayed in signals, made separate category for text icons (snouz)
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.1
 Date: 01. 01. 2025
