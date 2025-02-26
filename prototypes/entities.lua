@@ -41,38 +41,32 @@ data:extend(
     energy_usage = "1kW",
     source_inventory_size = 0,
     result_inventory_size = 0,
-    stateless_visualisation =
-    {
-      {
-        animation =
-        {
-          layers = {
-            {
-              filename = entity .. "flare-stack.png",
-              priority = "high",
-              width = 320,
-              height = 320,
-              scale = 0.5,
-              frame_count = 1,
-              shift = {1.5, -1.59375}
-            },
-            {
-              filename = entity .. "flare-stack-shadow.png",
-              priority = "high",
-              width = 320,
-              height = 320,
-              scale = 0.5,
-              frame_count = 1,
-              shift = {1.5, -1.59375},
-              draw_as_shadow = true
-            },
-          }
-          
-        }
-      }
-    },
     match_animation_speed_to_activity = false,
     graphics_set = {
+      animation =
+      {
+        layers = {
+          {
+            filename = entity .. "flare-stack.png",
+            priority = "high",
+            width = 320,
+            height = 320,
+            scale = 0.5,
+            frame_count = 1,
+            shift = {1.5, -1.59375}
+          },
+          {
+            filename = entity .. "flare-stack-shadow.png",
+            priority = "high",
+            width = 320,
+            height = 320,
+            scale = 0.5,
+            frame_count = 1,
+            shift = {1.5, -1.59375},
+            draw_as_shadow = true
+          },
+        }
+      },
       working_visualisations = {
         {
           animation =
@@ -102,7 +96,31 @@ data:extend(
             }
           },
           --light = {intensity = 0.1, size = 5},
-          constant_speed = true
+          constant_speed = true,
+          burns_as_liquid = true,
+          fadeout = true,
+        },
+        {
+          animation =
+          {
+            layers = {
+              {
+                filename = entity .. "smoke.png",
+                priority = "high",
+                frame_count = 29,
+                width = 48,
+                height = 105,
+                shift = {0, -4.3},
+                animation_speed = 0.8,
+                scale = 0.5,
+                run_mode = "backward",
+              },
+            }
+          },
+          --light = {intensity = 0.1, size = 5},
+          constant_speed = true,
+          burns_as_gas = true,
+          fadeout = true,
         }
       }
     },
@@ -164,7 +182,7 @@ eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
 eincinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 eincinerator.energy_usage = "320kW"
-eincinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator-electric.png"
+eincinerator.graphics_set.animation.layers[1].filename = entity .. "incinerator-electric.png"
 eincinerator.graphics_set.working_visualisations[1].animation.layers =
 {
   {
@@ -193,9 +211,33 @@ incinerator.minable.result = "incinerator"
 incinerator.crafting_categories = {"incineration"}
 -- incinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
 -- incinerator.energy_usage = "320kW"
-incinerator.stateless_visualisation[1].animation.layers[1].filename = entity .. "incinerator.png"
+--incinerator.graphics_set.animation.layers[1].filename = entity .. "incinerator.png"
 
 incinerator.graphics_set = {
+      animation =
+      {
+        layers = {
+          {
+            filename = entity .. "incinerator.png",
+            priority = "high",
+            width = 320,
+            height = 320,
+            scale = 0.5,
+            frame_count = 1,
+            shift = {1.5, -1.59375}
+          },
+          {
+            filename = entity .. "flare-stack-shadow.png",
+            priority = "high",
+            width = 320,
+            height = 320,
+            scale = 0.5,
+            frame_count = 1,
+            shift = {1.5, -1.59375},
+            draw_as_shadow = true
+          },
+        }
+      },
       working_visualisations = {
         {
           animation =

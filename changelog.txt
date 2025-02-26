@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.5
+Date: 19. 01. 2025
+  Bugfixes:
+    - Fixed missing ghost textures
+    - Flame is a bit less transparent
+---------------------------------------------------------------------------------------------------
+Version: 3.0.4
+Date: 08. 01. 2025
+  Locale:
+    - Improved some text (thesixthroc)
+    - UKR locale by Vladyslav V. Prodan
+    - RU locale by @Shadow_Man
+---------------------------------------------------------------------------------------------------
 Version: 3.0.3
 Date: 05. 01. 2025
   Bugfixes:
