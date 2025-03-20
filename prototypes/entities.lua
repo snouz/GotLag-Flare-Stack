@@ -23,7 +23,7 @@ data:extend(
       shift = {0, -0.2},
     },
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "flare-stack"},
+    minable = {mining_time = 0.2, result = "flare-stack"},
     fast_replaceable_group = "fluid-incinerator",
     max_health = 250,
     corpse = "big-remnants",
@@ -177,7 +177,7 @@ local eincinerator = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 eincinerator.name = "electric-incinerator"
 eincinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
 eincinerator.icon = icons .. "electric-incinerator.png"
-eincinerator.minable = {mining_time = 1, result = "electric-incinerator"}
+eincinerator.minable = {mining_time = 0.2, result = "electric-incinerator"}
 eincinerator.fast_replaceable_group = "item-incinerator"
 eincinerator.crafting_categories = {"incineration", "fuel-incineration"}
 eincinerator.crafting_speed = settings.startup["flare-stack-item-rate"].value
@@ -297,7 +297,7 @@ incinerator.energy_source =
 --ventstack.name = "vent-stack"
 --  ventstack.localised_description = FLUID_BURN_RATE_TOOLTIP
 --ventstack.icon = icons .. "vent-stack.png"
---ventstack.minable = {mining_time = 1, result = "vent-stack"}
+--ventstack.minable = {mining_time = 0.2, result = "vent-stack"}
 -- ventstack.fast_replaceable_group = "fluid-incinerator"
 -- ventstack.crafting_categories = {"flaring"}
 -- ventstack.crafting_speed = 1
