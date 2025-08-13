@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 3.1.0
-Date: 13. 08. 2025
+Date: 2025-08-13
   Changes:
     - Each entity now has a module slot.
     - Each entity can now be affected by beacons.
