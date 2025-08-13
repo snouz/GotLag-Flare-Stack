@@ -142,6 +142,8 @@ data:extend(
         }
       }
     },
+	module_slots = 1,
+	allowed_effects = { "consumption", "speed", "pollution", "quality" },
   },
 
   -- Incinerator smoke

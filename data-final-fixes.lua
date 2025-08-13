@@ -30,11 +30,19 @@ local function fluid_name_is_flarable(name)
 		return false
 	end
 
-	if name == "lava" then
+	if name == "lava" or name == "molten-iron" or name == "molten-copper" then
 		return false
 	end
 
 	return true
+end
+
+local function fluid_name_emissions_multiplier(name)
+	if name == "oxygen" or name == "hydrogen" or name == "steam" or name == "water" then
+		return 0
+	end
+
+	return 1
 end
 
 -- generate flare recipe for every fluid
@@ -62,7 +70,8 @@ for ki, vi in pairs(data.raw.fluid) do
         icons = newicons,
         icon_size = 64,
         subgroup = "flare-incineration-fluid",
-        order = "z[incineration]"
+        order = "z[incineration]",
+        emissions_multiplier = fluid_name_emissions_multiplier(vi.name),
       }
     })
   end
