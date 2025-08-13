@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.1.0
+Date: 2025-08-13
+  Changes:
+    - Each entity now has a module slot.
+    - Each entity can now be affected by beacons.
+    - Molten iron and molten copper are no longer flarable.
+    - Flaring water, steam, oxygen or hydrogen no longer produces pollution.
+  Balancing:
+    - The default fluid burn rate is now 15 (from 10).
+---------------------------------------------------------------------------------------------------
 Version: 3.0.6
 Date: 20. 03. 2025
   Changes:
