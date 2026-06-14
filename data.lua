@@ -26,3 +26,12 @@ data:extend({
     order = "b",
   },
 })
+
+if settings.startup["flare-stack-disable-incinerators"].value then
+  data.raw.furnace["incinerator"].hidden = true
+  data.raw.furnace["electric-incinerator"].hidden = true
+  data.raw.item["incinerator"].hidden = true
+  data.raw.item["electric-incinerator"].hidden = true
+  data.raw.recipe["incinerator"].hidden = true
+  data.raw.recipe["electric-incinerator"].hidden = true
+end

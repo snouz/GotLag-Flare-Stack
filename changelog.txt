@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 4.1.0
+Date: 2026-02-24
+  Features:
+    - If Space Age is enabled, the incinerator entity is now disabled due to the existence of the recycler. This behavior can be toggled by a setting.
+  Locale:
+    - More languages.
+---------------------------------------------------------------------------------------------------
 Version: 4.0.3
 Date: 2025-08-18
   Changes:
