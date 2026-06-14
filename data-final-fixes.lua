@@ -50,33 +50,32 @@ end
 -- generate flare recipe for every fluid
 for ki, vi in pairs(data.raw.fluid) do
 	if fluid_name_is_flarable(vi.name) then
-    local newicons = flarestack.get_icons(vi)
-    table.insert(newicons, no_icon)
-    data:extend({
-      {
-        type = "recipe",
-        name = vi.name .. "-flaring",
-        localised_name = vi.name .. " flaring",
-        category = "flaring",
-        enabled = true,
-        hidden_in_factoriopedia = true,
-        hide_from_player_crafting = true,
-        hide_from_signal_gui = true,
-        --hidden = true,
-        energy_required = 1,
-        ingredients =
-        {
-          { type = "fluid", name = vi.name, amount = settings.startup["flare-stack-fluid-rate"].value }
-        },
-        results = {},
-        icons = newicons,
-        icon_size = 64,
-        subgroup = "flare-incineration-fluid",
-        order = "z[incineration]",
-        emissions_multiplier = fluid_name_emissions_multiplier(vi.name),
-      }
-    })
-  end
+		local newicons = flarestack.get_icons(vi)
+		table.insert(newicons, no_icon)
+		data:extend({
+			{
+				type = "recipe",
+				name = vi.name .. "-flaring",
+				localised_name = vi.name .. " flaring",
+				category = "flaring",
+				enabled = true,
+				hidden_in_factoriopedia = true,
+				hide_from_player_crafting = true,
+				hide_from_signal_gui = true,
+				--hidden = true,
+				energy_required = 1,
+				ingredients = {
+					{ type = "fluid", name = vi.name, amount = settings.startup["flare-stack-fluid-rate"].value },
+				},
+				results = {},
+				icons = newicons,
+				icon_size = 64,
+				subgroup = "flare-incineration-fluid",
+				order = "z[incineration]",
+				emissions_multiplier = fluid_name_emissions_multiplier(vi.name),
+			},
+		})
+	end
 end
 
 -- generates a recipe to incinerate the specified non-fluid prototype
@@ -129,6 +128,10 @@ flarestack.category_list = {
 	"armor",
 	"mining-tool",
 	"repair-tool",
+	"tool",
+	"blueprint-book",
+	"blueprint",
+	"rail-planner",
 }
 for _, c in pairs(flarestack.category_list) do
 	if data.raw[c] then

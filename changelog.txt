@@ -1,13 +1,16 @@
 ---------------------------------------------------------------------------------------------------
-Version: 3.1.0
+Version: 4.0.0
 Date: 2025-08-13
   Changes:
-    - Each entity now has a module slot.
-    - Each entity can now be affected by beacons.
-    - Molten iron and molten copper are no longer flarable.
+    - Flare stacks and incinerators can now be connected to circuits.
+    - Flare stacks and incinerators now have 1 module slot and can be affected by beacons.
+    - Molten iron and molten copper can no longer be flared.
     - Flaring water, steam, oxygen or hydrogen no longer produces pollution.
+    - The incinerator can now burn rails, science packs, blueprints and blueprint books.
   Balancing:
     - The default fluid burn rate is now 15 (from 10).
+  Locale:
+    - Japanese locale update by Betanona.
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.6
 Date: 20. 03. 2025
