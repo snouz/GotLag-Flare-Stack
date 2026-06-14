@@ -32,7 +32,7 @@ local function fluid_name_is_flarable(name)
 		return false
 	end
 
-	if name == "lava" or name == "molten-iron" or name == "molten-copper" then
+	if name == "lava" then
 		return false
 	end
 
