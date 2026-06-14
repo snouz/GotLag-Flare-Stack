@@ -355,16 +355,16 @@ data:extend({
 	--ventstack
 })
 
-if mods["space-age"] then
-	local gravity = {
-		{
-			property = "gravity",
-			min = 0.1,
-		},
-	}
-	data.raw["furnace"]["flare-stack"].surface_conditions = gravity
-	data.raw["furnace"]["incinerator"].surface_conditions = gravity
-	data.raw["furnace"]["electric-incinerator"].surface_conditions = gravity
-end
+-- if mods["space-age"] then
+-- 	local gravity = {
+-- 		{
+-- 			property = "gravity",
+-- 			min = 0.1,
+-- 		},
+-- 	}
+-- 	data.raw["furnace"]["flare-stack"].surface_conditions = gravity
+-- 	data.raw["furnace"]["incinerator"].surface_conditions = gravity
+-- 	data.raw["furnace"]["electric-incinerator"].surface_conditions = gravity
+-- end
 
 --  if settings.startup["train-battery-pack-energy-density-setting"].value == "80 MJ" then

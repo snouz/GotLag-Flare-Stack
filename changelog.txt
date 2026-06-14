@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 4.0.3
+Date: 2025-08-18
+  Changes:
+    - Removed the gravity surface condition from Flare stacks and incinerators, allowing them to be built on space platforms.
+---------------------------------------------------------------------------------------------------
 Version: 4.0.2
 Date: 2025-08-18
   Changes:
