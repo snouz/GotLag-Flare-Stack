@@ -1,23 +1,20 @@
 icons = "__Flare Stack__/graphics/icon/"
 entity = "__Flare Stack__/graphics/entity/"
 
-local ITEM_BURN_RATE_TOOLTIP = {}
-if settings.startup["flare-stack-item-rate"].value == 1 then
-	ITEM_BURN_RATE_TOOLTIP =
-		{ "flare-tooltips.item-burn-rate-single", tostring(settings.startup["flare-stack-item-rate"].value) }
-else
-	ITEM_BURN_RATE_TOOLTIP =
-		{ "flare-tooltips.item-burn-rate", tostring(settings.startup["flare-stack-item-rate"].value) }
-end
-local FLUID_BURN_RATE_TOOLTIP =
-	{ "flare-tooltips.fluid-burn-rate", tostring(settings.startup["flare-stack-fluid-rate"].value) }
-
 data:extend({
 	-- Flare Stack *************************************************************************
 	{
 		type = "furnace",
 		name = "flare-stack",
-		localised_description = FLUID_BURN_RATE_TOOLTIP,
+		custom_tooltip_fields = {
+			{
+				name = { "custom-tooltip-fields.flare-stack-fluid-burn-rate-name" },
+				value = {
+					"custom-tooltip-fields.flare-stack-burn-rate-value",
+					tostring(settings.startup["flare-stack-fluid-rate"].value),
+				},
+			},
+		},
 		icon = icons .. "flare-stack.png",
 		icon_size = 64,
 		icon_draw_specification = {
@@ -198,7 +195,15 @@ data:extend({
 -- Electric Incinerator ******************************************************************
 local eincinerator = (util.table.deepcopy(data.raw["furnace"]["flare-stack"]))
 eincinerator.name = "electric-incinerator"
-eincinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
+eincinerator.custom_tooltip_fields = {
+	{
+		name = { "custom-tooltip-fields.flare-stack-item-burn-rate-name" },
+		value = {
+			"custom-tooltip-fields.flare-stack-burn-rate-value",
+			tostring(settings.startup["flare-stack-item-rate"].value),
+		},
+	},
+}
 eincinerator.icon = icons .. "electric-incinerator.png"
 eincinerator.minable = { mining_time = 0.2, result = "electric-incinerator" }
 eincinerator.fast_replaceable_group = "item-incinerator"
@@ -226,7 +231,15 @@ eincinerator.fluid_boxes = nil
 -- Incinerator ***************************************************************************
 local incinerator = (util.table.deepcopy(eincinerator))
 incinerator.name = "incinerator"
--- incinerator.localised_description = ITEM_BURN_RATE_TOOLTIP
+incinerator.custom_tooltip_fields = {
+	{
+		name = { "custom-tooltip-fields.flare-stack-item-burn-rate-name" },
+		value = {
+			"custom-tooltip-fields.flare-stack-burn-rate-value",
+			tostring(settings.startup["flare-stack-item-rate"].value),
+		},
+	},
+}
 incinerator.icon = icons .. "incinerator.png"
 incinerator.minable.result = "incinerator"
 -- incinerator.fast_replaceable_group = "item-incinerator"
