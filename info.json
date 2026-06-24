@@ -1,13 +1,13 @@
 {
   "name": "Flare Stack",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "title": "Flare Stack",
   "author": "GotLag",
   "homepage": "https://forums.factorio.com/viewtopic.php?f=93&t=21586",
-  "description": "Adds structures to dispose of unwanted items and fluids.",
-  "factorio_version": "2.0",
+  "description": "Adds structures for managing excess production byproducts.",
+  "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.0.66",
+    "base >= 2.1",
     "(?) deadlock_stacked_recipes",
     "(?) DeadlockStackingForAngels",
     "(?) DeadlockStackingForBobs",
