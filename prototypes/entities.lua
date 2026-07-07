@@ -1,5 +1,5 @@
-icons = "__Flare Stack__/graphics/icon/"
-entity = "__Flare Stack__/graphics/entity/"
+local icons = "__Flare Stack__/graphics/icon/"
+local entity = "__Flare Stack__/graphics/entity/"
 
 data:extend({
 	-- Flare Stack *************************************************************************
