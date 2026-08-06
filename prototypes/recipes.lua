@@ -79,7 +79,7 @@ local eincinerator =
   results = {{type = "item", name = "electric-incinerator", amount = 1}}
 }
 
-if mods["Electric Furnaces"] then
+if mods["Electric Furnaces"] and data.raw.item["electric-stone-furnace"] then
   eincinerator.ingredients =
   {
     {type = "item", name = "electric-stone-furnace", amount = 1},
