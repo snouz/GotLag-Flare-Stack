@@ -39,11 +39,14 @@ local function fluid_name_is_flarable(name)
 	return true
 end
 
-local function fluid_name_emissions_multiplier(name)
-	if name == "oxygen" or name == "hydrogen" or name == "steam" or name == "water" then
+local function fluid_emissions_multiplier(vi)
+	if vi.name == "oxygen" or vi.name == "hydrogen" or vi.name == "steam" or vi.name == "water" then
 		return 0
 	end
 
+	if vi.emissions_multiplier then
+		return vi.emissions_multiplier
+	end
 	return 1
 end
 
@@ -72,7 +75,7 @@ for ki, vi in pairs(data.raw.fluid) do
 				icon_size = 64,
 				subgroup = "flare-incineration-fluid",
 				order = "z[incineration]",
-				emissions_multiplier = fluid_name_emissions_multiplier(vi.name),
+				emissions_multiplier =  fluid_emissions_multiplier(vi),
 			},
 		})
 	end
